@@ -77,9 +77,27 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.0\lib\net45\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.0\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -129,6 +147,10 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -193,11 +215,160 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Chill\MovieDB.Context.cs">
+      <DependentUpon>MovieDB.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Chill\MovieDB.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Chill\MovieDB1.Designer.cs">
+      <DependentUpon>MovieDB.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Chill\qryActor.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\qryAudio.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\qryCodec.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\qryDirector.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\qryGenre.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\qryMedia.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\qryParentalRating.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\qryReleaseType.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\qryResolution.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\qrySpecial.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\sp_helpdiagrams_Result.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\sysdiagram.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblActor.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblAudio.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblCodec.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblComposer.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblDirector.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblEpisode.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblEpisodeMediaAudio.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblEpisodeMediaCodec.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblEpisodeMediaReleaseType.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblEpisodeMediaResolution.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblEpisodeMediaSpecial.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblGenre.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblMedia.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblMovie.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblMusic.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblNetwork.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblParentalRating.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblPerson.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblProducer.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblReleaseType.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblResolution.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblRole.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblSpecial.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblStudio.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblTVSeriesMediaAudio.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblTVSeriesMediaCodec.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblTVSeriesMediaReleaseType.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblTVSeriesMediaResolution.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblTVSeriesMediaSpecial.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\tblTVSery.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\User.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chill\UserRole.cs">
+      <DependentUpon>MovieDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,6 +381,16 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Chill\MovieDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MovieDB.edmx</DependentUpon>
+      <LastGenOutput>MovieDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Chill\MovieDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MovieDB.edmx</DependentUpon>
+      <LastGenOutput>MovieDB.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -220,6 +401,13 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Chill\MovieDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MovieDB1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Chill\MovieDB.edmx.diagram">
+      <DependentUpon>MovieDB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -233,7 +421,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -244,32 +434,17 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="bootstrap\" />
+    <Folder Include="css\" />
+    <Folder Include="js\" />
+    <Folder Include="less\" />
+    <Folder Include="plugins\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -278,6 +453,19 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database.Repository\Database.Repository.csproj">
+      <Project>{d92360de-d33f-4451-8d4a-2a86378934f8}</Project>
+      <Name>Database.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Database.Service\Database.Service.csproj">
+      <Project>{087adc3a-c9aa-47dd-b8af-a7ce747541cc}</Project>
+      <Name>Database.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
