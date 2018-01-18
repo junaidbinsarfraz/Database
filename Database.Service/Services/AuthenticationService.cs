@@ -1,5 +1,6 @@
 ﻿using Database.Repository.DAOs;
 using Database.Repository.DB;
+using Database.Utility.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +24,13 @@ namespace Database.Service.Services
         {
             Boolean IsValid = true;
 
-            if (UserName == null || UserName == "")
+            if (Util.IsNullOrEmpty(UserName))
             {
                 this.ModelState.AddModelError("UserName", "Username cannot be empty");
                 IsValid = false;
             }
 
-            if (Password == null || Password == "")
+            if (Util.IsNullOrEmpty(Password))
             {
                 this.ModelState.AddModelError("Password", "Password cannot be empty");
                 IsValid = false;
@@ -42,37 +43,37 @@ namespace Database.Service.Services
         {
             Boolean IsValid = true;
 
-            if (User.UserName == null || User.UserName == "")
+            if (Util.IsNullOrEmpty(User.UserName))
             {
                 this.ModelState.AddModelError("UserName", "Username cannot be empty");
                 IsValid = false;
             }
 
-            if (User.Password == null || User.Password == "")
+            if (Util.IsNullOrEmpty(User.Password))
             {
                 this.ModelState.AddModelError("Password", "Password cannot be empty");
                 IsValid = false;
             }
 
-            if (User.Email == null || User.Email == "")
+            if (Util.IsNullOrEmpty(User.Email))
             {
                 this.ModelState.AddModelError("Email", "Email cannot be empty");
                 IsValid = false;
             }
 
-            if (User.tblPerson.DOB == null)
+            if (Util.IsNull(User.tblPerson.DOB))
             {
                 this.ModelState.AddModelError("DOB", "Date of birth cannot be empty");
                 IsValid = false;
             }
 
-            if (User.tblPerson.FirstName == null || User.tblPerson.FirstName == "")
+            if (Util.IsNullOrEmpty(User.tblPerson.FirstName))
             {
                 this.ModelState.AddModelError("FirstName", "FirstName cannot be empty");
                 IsValid = false;
             }
 
-            if (User.tblPerson.LastName == null || User.tblPerson.LastName == "")
+            if (Util.IsNullOrEmpty(User.tblPerson.LastName))
             {
                 this.ModelState.AddModelError("LastName", "LastName cannot be empty");
                 IsValid = false;

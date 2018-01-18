@@ -467,6 +467,10 @@
       <Project>{087adc3a-c9aa-47dd-b8af-a7ce747541cc}</Project>
       <Name>Database.Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Database.Utility\Database.Utility.csproj">
+      <Project>{b8b41ab3-e9dc-4b86-a3d9-5ada8d9d82e9}</Project>
+      <Name>Database.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

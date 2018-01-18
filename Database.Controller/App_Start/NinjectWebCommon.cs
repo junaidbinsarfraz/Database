@@ -68,6 +68,7 @@ namespace Database.App_Start
             //kernel.Bind(typeof(IGenericRepository<>)).To(typeof(Repository<>)).InRequestScope();
             //kernel.Bind<ILoginService>().To<LoginService>();
             kernel.Bind<IAuthenticationService>().To<AuthenticationService>();
+            kernel.Bind<IUserService>().To<UserService>();
         }
     }
 }

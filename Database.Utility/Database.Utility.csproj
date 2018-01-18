@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D92360DE-D33F-4451-8D4A-2A86378934F8}</ProjectGuid>
+    <ProjectGuid>{B8B41AB3-E9DC-4B86-A3D9-5ADA8D9D82E9}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Database.Repository</RootNamespace>
-    <AssemblyName>Database.Repository</AssemblyName>
+    <RootNamespace>Database.Utility</RootNamespace>
+    <AssemblyName>Database.Utility</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -43,14 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -84,8 +76,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -108,13 +98,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="DB\MovieDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MovieDB1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DB\MovieDB.edmx.diagram">
-      <DependentUpon>MovieDB.edmx</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -123,188 +106,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB\MovieDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MovieDB.edmx</DependentUpon>
-      <LastGenOutput>MovieDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DB\MovieDB.edmx.sql" />
-    <Content Include="DB\MovieDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MovieDB.edmx</DependentUpon>
-      <LastGenOutput>MovieDB.cs</LastGenOutput>
-    </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAOs\GenericRepository.cs" />
-    <Compile Include="DAOs\IGenericRepository.cs" />
-    <Compile Include="DAOs\IAuthenticationRepository.cs" />
-    <Compile Include="DAOs\AuthenticationRepository.cs" />
-    <Compile Include="DAOs\IUserRepository.cs" />
-    <Compile Include="DAOs\UserRepository.cs" />
-    <Compile Include="DB\MovieDB.Context.cs">
-      <DependentUpon>MovieDB.Context.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="DB\MovieDB.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="DB\MovieDB1.Designer.cs">
-      <DependentUpon>MovieDB.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="DB\qryActor.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\qryAudio.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\qryCodec.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\qryDirector.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\qryGenre.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\qryMedia.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\qryParentalRating.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\qryReleaseType.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\qryResolution.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\qrySpecial.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\sp_helpdiagrams_Result.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\sysdiagram.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblActor.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblAudio.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblCodec.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblComposer.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblDirector.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblEpisode.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblEpisodeMediaAudio.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblEpisodeMediaCodec.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblEpisodeMediaReleaseType.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblEpisodeMediaResolution.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblEpisodeMediaSpecial.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblGenre.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblMedia.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblMovie.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblMusic.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblNetwork.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblParentalRating.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblPerson.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblProducer.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblReleaseType.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblResolution.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblRole.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblSpecial.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblStudio.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblTVSeriesMediaAudio.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblTVSeriesMediaCodec.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblTVSeriesMediaReleaseType.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblTVSeriesMediaResolution.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblTVSeriesMediaSpecial.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\tblTVSery.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\User.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\UserRole.cs">
-      <DependentUpon>MovieDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Database.Utility\Database.Utility.csproj">
-      <Project>{b8b41ab3-e9dc-4b86-a3d9-5ada8d9d82e9}</Project>
-      <Name>Database.Utility</Name>
-    </ProjectReference>
+    <Compile Include="Utilities\DateUtil.cs" />
+    <Compile Include="Utilities\EmailUtil.cs" />
+    <Compile Include="Utilities\StringUtil.cs" />
+    <Compile Include="Utilities\Util.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -319,9 +130,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>9340</DevelopmentServerPort>
+          <DevelopmentServerPort>4611</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58883/</IISUrl>
+          <IISUrl>http://localhost:58895/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
